@@ -15,7 +15,11 @@
             <h1>Questions</h1>
         </div>
     </section>
-
+    <div class="container d-flex justify-content-start">
+        <div class="btn btn-primary mt-4">
+            <a href="{{route('questions.add')}}" style="color: white;" >Ask a question</a>
+        </div>
+    </div>
     @if (Session::has('success_message'))
     <div class="alert alert-success" role="alert">
         {{ Session::get('success_message') }}
@@ -41,14 +45,21 @@
                     </div>
                 </div>
             </div>
+            <div class="d-flex">
+             <div class="btn btn-outline-secondary btn-sm mb-4 ml-4">
+            <a href="{{route('question.edit',['id'=>$question->id])}}" style="color:rgb(0, 0, 0);" >Edit</a>
+        </div>
+        <form action="{{route('question.delete',['id'=>$question->id])}}" method="POST">
+            @method('DELETE')
+            @csrf
+            <button type="submit" class="btn btn-outline-danger btn-sm  mb-4 ml-4" onclick="return confirm('Are you sure you want to delete?')"> DELETE</button>
+        </form>   
+            </div>
+        
         @endforeach
         </div>
     </section>
-    <div class="container d-flex justify-content-end">
-        <div class="btn btn-primary mt-2">
-            <a href="{{route('questions.add')}}" style="color: white;" >Ask a question</a>
-        </div>
-    </div>
+ 
     @endsection
 </body>
 </html>

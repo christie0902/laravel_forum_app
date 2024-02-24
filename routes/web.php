@@ -26,3 +26,6 @@ Route::get('/questions/add',function () {
 
 Route::post('/questions/store',[QuestionController::class, 'create'])->name('questions.create');
 Route::get('/questions/{id}',[QuestionController::class, 'show'])->name('answers.display');
+Route::get('/question/edit/{id}', [QuestionController::class, 'edit'])->name('question.edit');
+Route::put('/question/edit/{id}', [QuestionController::class, 'save'])->name('question.save');
+Route::delete('/question/delete/{id}', [QuestionController::class, 'delete'])->name('question.delete');

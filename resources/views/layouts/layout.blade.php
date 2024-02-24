@@ -20,6 +20,7 @@
 
     <!-- CONTENT -->
     @yield('content')
+    <div style="height: 60px;"></div>
     <!-- FOOTER -->
     @include('layouts.footer')
 
